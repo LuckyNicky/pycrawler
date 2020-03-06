@@ -1,0 +1,10 @@
+prune .*
+prune docs
+
+graft media
+graft tests
+
+exclude *.ini .* Dockerfile
+include *.cfg *.md *.toml VERSION docs/*.rst
+
+global-exclude __pycache__/* build/* locale/*

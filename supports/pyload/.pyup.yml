@@ -1,0 +1,7 @@
+# see https://pyup.io/docs/configuration/ for all available options
+
+update: insecure
+branch: master
+schedule: "every day"
+label_prs: enhancement
+assignees: vuolter

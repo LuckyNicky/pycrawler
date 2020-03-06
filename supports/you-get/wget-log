@@ -1,0 +1,7 @@
+--2020-02-20 21:17:31--  https://www.moerats.com/usr/down/ffmpeg/ffmpeg-git-64bit-static.tar.xz
+Resolving www.moerats.com (www.moerats.com)... 172.83.156.172
+Connecting to www.moerats.com (www.moerats.com)|172.83.156.172|:443... connected.
+HTTP request sent, awaiting response... Read error (Connection reset by peer) in headers.
+Retrying.
+
+--2020-02-21 10:20:52--  (try: 2)  https://www.moerats.com/usr/down/ffmpeg/ffmpeg-git-64bit-static.tar.xz

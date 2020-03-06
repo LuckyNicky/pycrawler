@@ -1,0 +1,69 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# AUTHOR: vuolter
+
+import argparse
+import os
+import sys
+
+#!/usr/bin/env python3
+import os, sys
+
+_srcdir = '%s/src/' % os.path.dirname(os.path.realpath(__file__))
+_filepath = os.path.dirname(sys.argv[0])
+sys.path.insert(1, os.path.join(_filepath, _srcdir))
+
+from pyload.__init__ import __version__
+from pyload.core import Core, running_core
+from pyload.core.api import Api
+
+def _parse_args(cmd_args):
+    """
+    Parse command line parameters.
+
+    Args:
+      cmd_args ([str]): command line parameters as list of strings
+
+    Returns:
+      :obj:`argparse.Namespace`: command line parameters namespace
+    """
+    parser = argparse.ArgumentParser(
+        description="""The free and open-source Download Manager written in pure Python"""[1:])
+    group = parser.add_mutually_exclusive_group()
+
+    group.add_argument("--version", action="version", version=f"pyLoad {__version__}")
+
+    parser.add_argument("--cmd", action="store_true", help="run as cmd")
+
+    parser.add_argument(
+        "--url", help="url to download", default=''
+    )
+
+    return parser.parse_args(cmd_args)
+
+
+def run(run_args):
+
+    if (running_core):
+        print('core is not run, exit....')
+        return
+
+    api = Api(running_core)
+    api.add_package('cmd', run_args.url)
+
+
+def main(cmd_args=sys.argv[1:]):
+    """
+    Entry point for console_scripts.
+    """
+    args = _parse_args(cmd_args)
+    run_args = (args.url)
+
+    run(run_args)
+
+
+if sys.version_info[0] == 3:
+    if __name__ == '__main__':
+        main()
+else: # Python 2
+    pass
